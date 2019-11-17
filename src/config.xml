@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<operator xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="FISUDA" name="get-orion-version" version="0.1.0">
+
+    <details>
+        <title>Get orion version</title>
+        <homepage>https://github.com/lets-fiware/get-orion-version-operator</homepage>
+        <authors>Kazuhito Suda &lt;kazuhito@fisuda.jp&gt;</authors>
+        <email>kazuhito@fisuda.jp</email>
+        <image></image>
+        <smartphoneimage></smartphoneimage>
+        <description>Get orion version</description>
+        <longdescription>DESCRIPTION.md</longdescription>
+        <changelog>doc/changelog.md</changelog>
+        <doc>doc/userguide.md</doc>
+        <license>MIT</license>
+        <issuetracker>https://github.com/lets-fiware/get-orion-version-operator/issues</issuetracker>
+    </details>
+
+    <requirements>
+        <!-- Add any extra requirements here -->
+        <!-- <feature name="${feature-name}" /> -->
+    </requirements>
+
+    <preferences>
+        <preference
+            name="ngsi_server"
+            type="text"
+            label="NGSI server URL"
+            description="URL of the Orion Context Broker to use for retrieving entity information"
+            default="http://orion.lab.fiware.org:1026/" />
+        <preference
+            name="use_user_fiware_token"
+            type="boolean"
+            label="Use the FIWARE credentials of the user"
+            description="Use the FIWARE credentials of the user logged into WireCloud. Take into account this option cannot be enabled if you want to use this widget in a public workspace as anonoymous users doesn't have a valid FIWARE auth token. As an alternative, you can make use of the &quot;Use the FIWARE credentials of the workspace owner&quot; preference."
+            default="true" />
+        <preference
+            name="use_owner_credentials"
+            type="boolean"
+            label="Use the FIWARE credentials of the workspace owner"
+            description="Use the FIWARE credentials of the owner of the workspace. This preference takes preference over &quot;Use the FIWARE credentials of the user&quot;."
+            default="false" />
+    </preferences>
+
+    <wiring>
+        <outputendpoint name="output" type="text" label="output" description="output"/>
+    </wiring>
+    <scripts>
+        <script src="js/main.js"/>
+    </scripts>
+
+</operator>
