@@ -28,7 +28,6 @@
             request_headers['FIWARE-OAuth-Source'] = 'workspaceowner';
         }
 
-
         var url = new URL('version', ngsiServer);
 
         MashupPlatform.http.makeRequest(url, {
@@ -36,14 +35,12 @@
             requestHeaders: request_headers,
             onSuccess: function (response) {
                 if (response.status !== 200) {
-                    throw new Error('Unexpected response from FIWARE Orion');
+                    MashupPlatform.operator.log({'status': response.status, 'statusText': response.statusText});
                 }
-                if (MashupPlatform.operator.outputs.output.connected) {
-                    MashupPlatform.wiring.pushEvent("output", response.response);
-                }
+                pushEvent(response.response);
             },
             onFailure: function (response) {
-                throw new Error('Unexpected response from FIWARE Orion');
+                pushEvent(mkMsg(response));
             },
             onException: function (reason) {
                 MashupPlatform.operator.log(reason);
@@ -55,6 +52,26 @@
         getOrionVersion();
 
     }.bind(this));
+
+    var mkMsg = function (response) {
+        var msg = {};
+
+        msg.request = response.request;
+        msg.rsponse = response.response;
+        msg.rsponseText = response.responseText;
+        msg.rsponseXML = response.responseXML;
+        msg.status = response.status;
+        msg.statusText = response.statusText;
+        msg.transport = response.transport;
+
+        return msg;
+    }
+
+    var pushEvent = function pushEvent(data) {
+        if (MashupPlatform.operator.outputs.output.connected) {
+            MashupPlatform.wiring.pushEvent("output", data);
+        }
+    }
 
     getOrionVersion();
 
