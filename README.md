@@ -1,7 +1,7 @@
 # Get orion version operator
 
 [![](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/visualization.svg)](https://www.fiware.org/developers/catalogue/)
-[![License: MIT](https://img.shields.io/github/license/lets-fiware/calculator-operator.svg)](https://opensource.org/licenses/MIT)<br/>
+[![License: MIT](https://img.shields.io/github/license/lets-fiware/get-orion-version-operator.svg)](https://opensource.org/licenses/MIT)<br/>
 [![Build Status](https://travis-ci.org/lets-fiware/get-orion-version-operator.svg?branch=master)](https://travis-ci.org/lets-fiware/get-orion-version-operator)
 [![Coverage Status](https://coveralls.io/repos/github/lets-fiware/get-orion-version-operator/badge.svg?branch=master)](https://coveralls.io/github/lets-fiware/get-orion-version-operator?branch=master)
 
