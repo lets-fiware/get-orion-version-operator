@@ -48,18 +48,13 @@
         });
     }
 
-    MashupPlatform.prefs.registerCallback(function (new_preferences) {
-        getOrionVersion();
-
-    }.bind(this));
-
     var mkMsg = function (response) {
         var msg = {};
 
         msg.request = response.request;
-        msg.rsponse = response.response;
-        msg.rsponseText = response.responseText;
-        msg.rsponseXML = response.responseXML;
+        msg.response = response.response;
+        msg.responseText = response.responseText;
+        msg.responseXML = response.responseXML;
         msg.status = response.status;
         msg.statusText = response.statusText;
         msg.transport = response.transport;
@@ -73,6 +68,19 @@
         }
     }
 
-    getOrionVersion();
+    /* TODO
+     * this if is required for testing, but we have to search a cleaner way
+     */
+    if (window.MashupPlatform != null) {
+        MashupPlatform.prefs.registerCallback(function (new_preferences) {
+            getOrionVersion();
+        }.bind(this));
+
+        getOrionVersion();
+    }
+
+    /* test-code */
+    window.getOrionVersion = getOrionVersion;
+    /* end-test-code */
 
 })();
