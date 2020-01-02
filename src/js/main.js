@@ -41,9 +41,6 @@
             },
             onFailure: function (response) {
                 pushEvent(mkMsg(response));
-            },
-            onException: function (reason) {
-                MashupPlatform.operator.log(reason);
             }
         });
     }
