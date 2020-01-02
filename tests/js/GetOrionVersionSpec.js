@@ -238,7 +238,7 @@
         });
 
         it("getOrionVersion fail", function () {
-            MashupPlatform.http.addAnswer('GET', 'http://orion.lab.fiware.org:1026/version', 204,
+            MashupPlatform.http.addAnswer('GET', 'http://orion.lab.fiware.org:1026/version', 200,
                 {
                     'request': '',
                     'response': '',
@@ -252,15 +252,8 @@
 
             getOrionVersion();
 
-            expect(MashupPlatform.wiring.pushEvent).toHaveBeenCalledWith('output', {
-                'request': '',
-                'response': '',
-                'responseText': '',
-                'responseXML': '',
-                'status': 204,
-                'statusText': '',
-                'transport': ''
-            });
+            expect(MashupPlatform.operator.log).toHaveBeenCalledWith({ status: 204, statusText: '' });
+            expect(MashupPlatform.wiring.pushEvent).toHaveBeenCalledWith('output', '');
         });
 
         it("getOrionVersion illegal url", function () {
