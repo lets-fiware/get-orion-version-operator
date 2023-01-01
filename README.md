@@ -51,5 +51,5 @@ available on Read the Docs.
 
 ## Copyright and License
 
-Copyright (c) 2019 Kazuhito Suda
+Copyright (c) 2019-2023 Kazuhito Suda
 Licensed under the MIT license.
