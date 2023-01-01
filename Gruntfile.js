@@ -2,7 +2,7 @@
  * get-orion-version
  * https://github.com/lets-fiware/get-orion-version-operator
  *
- * Copyright (c) 2019 Kazuhito Suda
+ * Copyright (c) 2019-2023 Kazuhito Suda
  * Licensed under the MIT license.
  */
 
